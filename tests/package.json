@@ -1,0 +1,16 @@
+{
+  "name": "js-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {   
+    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nastya",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
