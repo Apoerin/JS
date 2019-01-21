@@ -1,11 +1,11 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', function () {
-    let btnPrev = document.querySelector('.schedule .arrow-left');
-    let btnNext = document.querySelector('.schedule .arrow-right');
+    let btnPrev = document.querySelector('.schedule .prev');
+    let btnNext = document.querySelector('.schedule .next');
     let images = document.querySelectorAll('.slider .images img');
-    let item = document.querySelectorAll('.slider .event-active');
-    let itemContent = document.querySelectorAll('.slider .event-descr');
-    let i = 2;
+    let item = document.querySelectorAll('.slider .show');
+    let itemContent = document.querySelectorAll('.slider .event-content');
+    let i = 1;
 
     for (let j = 0, items; j < item.length; j++) {
         items = item.item(j);
@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showSlides(i) {
         console.log(i);
-        cleaningClass(images, 'showed');
-        cleaningClass(item, 'item-active');
+        cleaningClass(images, 'active');
+        cleaningClass(item, 'event-active');
         cleaningClass(itemContent, 'content-active');
-        images[i].className = 'showed';
-        item[i].classList.toggle("item-active");
+        images[i].className = 'active';
+        item[i].classList.toggle("event-active");
         itemContent[i].classList.toggle("content-active");
     }
 

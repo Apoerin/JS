@@ -42,9 +42,6 @@ li {
 .events-list {
     display: flex;
 }
-.event-list {
-    height: 92px;
-}
 .prev {
     width: 36px;
     height: 36px;
@@ -75,7 +72,7 @@ li {
     border: 1px solid transparent;
     position: relative;
 }
-.event-list {
+.event-date {
     width: 93px;
     height: 93px;
     position: absolute;
@@ -94,11 +91,6 @@ li {
     background: url("images/slider-active.png");
     border: 1px solid transparent;
     position: relative;
-}
-.event-active:hover {
-    width: 555px;
-    height: 92px;
-    background: url("images/slider-active.png");
 }
 .event-content {
     display: none;
@@ -124,7 +116,7 @@ li {
     font-size: 13px;
     text-transform: uppercase;
 }
-.event-content {
+.content-active {
     position: absolute;
     background: url("images/slider-block.png");
     width: 464px;
@@ -145,8 +137,12 @@ li {
     right: 20px;
     background: url("images/code.png");
 }
-.event-descr {
-    display: none;
+.content-active {
+    display: block;
+    width: 464px;
+    height: 92px;
+    border: 1px solid transparent;
+    position: relative;
 }
 .event-title {
     font-size: 28px;
