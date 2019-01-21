@@ -34,7 +34,7 @@ li {
     position: absolute;
     left: 5%;
     right: 5%;
-    top: 60%;
+    top: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,6 +46,7 @@ li {
     width: 36px;
     height: 36px;
     border: 1px solid transparent;
+    background: url("images/prev.png")center no-repeat;
     border-radius: 5px;
     margin: 5px;
 }
@@ -56,6 +57,7 @@ li {
     width: 36px;
     height: 36px;
     border: 1px solid transparent;
+    background: url("images/next.png")center no-repeat;
     border-radius: 5px;
     margin: 5px;
 }
@@ -88,7 +90,7 @@ li {
 .event-active {
     width: 555px;
     height: 92px;
-    background: url("images/slider-active.png");
+    background: url("images/slider-active.png") no-repeat;
     border: 1px solid transparent;
     position: relative;
 }
@@ -135,7 +137,6 @@ li {
     top:10%;
     bottom: 10%;
     right: 20px;
-    background: url("images/code.png");
 }
 .content-active {
     display: block;
@@ -148,13 +149,6 @@ li {
     font-size: 28px;
     position: absolute;
     bottom: 18px;
-}
-.event-active {
-    display: block;
-    width: 464px;
-    height: 92px;
-    border: 1px solid transparent;
-    position: relative;
 }
 .event-type {
     font-size: 13px;

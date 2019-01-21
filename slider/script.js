@@ -1,7 +1,7 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', function () {
-    let btnPrev = document.querySelector('.schedule .prev');
-    let btnNext = document.querySelector('.schedule .next');
+    let btnPrev = document.querySelector('.content .prev');
+    let btnNext = document.querySelector('.content .next');
     let images = document.querySelectorAll('.slider .images img');
     let item = document.querySelectorAll('.slider .show');
     let itemContent = document.querySelectorAll('.slider .event-content');
