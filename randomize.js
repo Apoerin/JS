@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 3000);
 
 
-
     setTimeout(getPromise, 3000);
     setTimeout(makeAsyncRequest, 3000);
 
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
             xmlRequest.open("GET", `http://apistaging.theatre.pp.ua/posts.json?limit=${limitNumber}&page=${pageNumber}`);
             xmlRequest.send();
         }
-
 
     // Async Await
 
@@ -62,8 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error(error);
         }
     }
-
-
 
     // Promise
 
