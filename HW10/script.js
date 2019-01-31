@@ -29,14 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
             this._x = center.x;
             this._y = center.y;
         }
-
-        get x() {
-            return this._x;
-        }
-
-        get y() {
-            return this._y;
-        }
     }
 
     class Polygon {
@@ -44,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this._center = center;
             this._points = points;
         }
+
     }
 
     class Rectangle {
@@ -52,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
             this._width = width;
             this._height = height;
         }
-        get Area() {
+        get area() {
             return (this._width * this._height);
         }
-        get Perimeter() {
+        get perimeter() {
             return (this._width + this._height) *2;
         }
     }
@@ -66,26 +59,23 @@ document.addEventListener('DOMContentLoaded', function () {
             this._center = center;
             this._width = width;
         }
-        get Area() {
+        get area() {
             return (this._width * this._width);
         }
-        get Perimeter() {
+        get perimeter() {
             return (this._width + this._width) *2;
         }
     }
 
-    class Circle extends Shape {
+    class Circle {
         constructor(center, radius) {
-            super(center);
+            this._center = center;
             this._radius = radius;
         }
-        get Radius() {
-            return Math.sqrt(Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2));
-        }
-        get Area() {
+        get area() {
             return (this._radius * this._radius) * Math.PI;
         }
-        get Perimeter() {
+        get perimeter() {
             return (Math.PI * this._radius) *2;
         }
     }
@@ -113,13 +103,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    let center = new Point(20,30);
+    let point = new Point(20,30);
     let points = [point1, point2, point3, point4];
-    let shape = new Shape(center);
-    let polygon = new Polygon(center,points);
-    let rectangle = new Rectangle(center,200,120);
-    let square = new Square(center,75);
-    let circle = new Circle(center, radius);
+    let shape = new Shape(point);
+    let polygon = new Polygon(shape,points);
+    let rectangle = new Rectangle(shape,200,120);
+    let square = new Square(shape,75);
+    let circle = new Circle(shape, point.getDistance(point));
 
     console.log(shape);
     console.log(polygon);
@@ -136,4 +126,4 @@ document.addEventListener('DOMContentLoaded', function () {
         Circle: Circle,
         Point: Point
     };
-})
+});
