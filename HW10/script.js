@@ -35,14 +35,24 @@ document.addEventListener('DOMContentLoaded', function () {
             this._center = center;
             this._points = points;
         }
-
+        perimeter() {
+            let sum = 0;
+            if (this._points.length >= 1) {
+                for (let i = 0; i < this._points.length - 1; i++) {
+                    sum += this._points[i].getDistance(this._points[i + 1]);
+                }
+            }
+            return sum;
+        }
     }
 
     class Rectangle {
         constructor(center, width, height) {
             this._center = center;
-            this._width = width;
-            this._height = height;
+            if (this._points.length === 4) {
+                this._width = this._points[0].getDistance(this._points[1]);
+                this._height = this._points[1].getDistance(this._points[3]);
+            }
         }
         get area() {
             return (this._width * this._height);
@@ -105,13 +115,17 @@ document.addEventListener('DOMContentLoaded', function () {
         Point: Point
     };
 
-    let point = new Point(x,y);
+    let point = new Point(1,1);
     let points = [point1, point2, point3, point4];
+    let point1 = new Point(2,5);
+    let point2 = new Point(5,8);
+    let point3 = new Point(8,3);
+    let point4 = new Point(3,2);
     let shape = new Shape(point);
     let polygon = new Polygon(shape,points);
     let rectangle = new Rectangle(shape,width,height);
     let square = new Square(shape,width);
-    let circle = new Circle(shape, radius);
+    let circle = new Circle(shape,radius);
 
     console.log(shape);
     console.log(polygon);
