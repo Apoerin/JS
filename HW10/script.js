@@ -26,8 +26,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     class Shape {
         constructor(center) {
-            this._x = center.x;
-            this._y = center.y;
+            this.center = center;
         }
     }
 
@@ -58,12 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
             super(center, width, width);
             this._center = center;
             this._width = width;
-        }
-        get area() {
-            return (this._width * this._width);
-        }
-        get perimeter() {
-            return (this._width + this._width) *2;
         }
     }
 
@@ -103,21 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    let point = new Point(20,30);
-    let points = [point1, point2, point3, point4];
-    let shape = new Shape(point);
-    let polygon = new Polygon(shape,points);
-    let rectangle = new Rectangle(shape,200,120);
-    let square = new Square(shape,75);
-    let circle = new Circle(shape, point.getDistance(point));
-
-    console.log(shape);
-    console.log(polygon);
-    console.log(rectangle);
-    console.log(square);
-    console.log(circle);
-
-
     Shapes = {
         Shape: Shape,
         Polygon: Polygon,
@@ -126,4 +104,18 @@ document.addEventListener('DOMContentLoaded', function () {
         Circle: Circle,
         Point: Point
     };
+
+    let point = new Point(x,y);
+    let points = [point1, point2, point3, point4];
+    let shape = new Shape(point);
+    let polygon = new Polygon(shape,points);
+    let rectangle = new Rectangle(shape,width,height);
+    let square = new Square(shape,width);
+    let circle = new Circle(shape, radius);
+
+    console.log(shape);
+    console.log(polygon);
+    console.log(rectangle);
+    console.log(square);
+    console.log(circle);
 });
