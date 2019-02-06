@@ -24,20 +24,31 @@
  *      периметр()
  */
 document.addEventListener('DOMContentLoaded', function () {
+    /**
+     * @param {Point} center
+     */
     class Shape {
         constructor(center) {
             this.center = center;
         }
     }
 
+    /**
+     * @param {Point} center
+     * @param {points[]} points
+     */
     class Polygon {
         constructor(center, points) {
             this._center = center;
             this._points = points;
         }
+        /**
+         *
+         * @return {number}
+         */
         perimeter() {
             let sum = 0;
-            if (this._points.length >= 1) {
+            if (this._points.length >= 4) {
                 for (let i = 0; i < this._points.length - 1; i++) {
                     sum += this._points[i].getDistance(this._points[i + 1]);
                 }
@@ -53,10 +64,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 this._width = this._points[0].getDistance(this._points[1]);
                 this._height = this._points[1].getDistance(this._points[3]);
             }
+            else if (this._points.length !== 4) {
+                throw new Error('rectangle should have 4 sides');
+            }
         }
+        /**
+         *
+         * @return {number}
+         */
         get area() {
             return (this._width * this._height);
         }
+        /**
+         *
+         * @return {number}
+         */
         get perimeter() {
             return (this._width + this._height) *2;
         }
@@ -70,14 +92,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * @param {Point} center
+     * @param {number} radius
+     */
     class Circle {
         constructor(center, radius) {
             this._center = center;
             this._radius = radius;
         }
+        /**
+         *
+         * @return {number}
+         */
         get area() {
             return (this._radius * this._radius) * Math.PI;
         }
+        /**
+         *
+         * @returns {number}
+         */
         get perimeter() {
             return (Math.PI * this._radius) *2;
         }
@@ -125,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let polygon = new Polygon(shape,points);
     let rectangle = new Rectangle(shape,width,height);
     let square = new Square(shape,width);
-    let circle = new Circle(shape,radius);
+    let circle = new Circle(shape,7);
 
     console.log(shape);
     console.log(polygon);
