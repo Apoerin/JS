@@ -23,14 +23,13 @@
  *      площа(),
  *      периметр()
  */
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener('DOMContentLoaded', () => {
     class Shape {
         /**
          * @param {Point} center
          */
         constructor(center) {
-            this.center = center;
+            this._center = center;
         }
     }
 
@@ -47,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
          *
          * @return {number}
          */
-        perimeter() {
+
+        get perimeter() {
             let sum = 0;
             if (this._points.length >= 4) {
                 for (let i = 0; i < this._points.length - 1; i++) {
@@ -59,16 +59,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     class Rectangle {
+        /**
+         * @param {Point} center
+         * @param {number} width
+         * @param {number} height
+         */
         constructor(center, width, height) {
             this._center = center;
+            this._width = width;
+            this._height = height;
             if (this._points.length !== 4) {
                 throw new Error('rectangle should have 4 sides');
             }
-            if (this._points.length === 4) {
-                this._width = this._points[0].getDistance(this._points[1]);
-                this._height = this._points[1].getDistance(this._points[3]);
-            }
         }
+
         /**
          *
          * @return {number}
@@ -76,16 +80,21 @@ document.addEventListener('DOMContentLoaded', function () {
         get area() {
             return (this._width * this._height);
         }
+
         /**
          *
          * @return {number}
          */
         get perimeter() {
-            return (this._width + this._height) *2;
+            return (this._width + this._height) * 2;
         }
     }
 
     class Square extends Rectangle {
+        /**
+         * @param {Point} center
+         * @param {number} width
+         */
         constructor(center, width) {
             super(center, width, width);
             this._center = center;
@@ -102,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this._center = center;
             this._radius = radius;
         }
+
         /**
          *
          * @return {number}
@@ -109,12 +119,13 @@ document.addEventListener('DOMContentLoaded', function () {
         get area() {
             return (this._radius * this._radius) * Math.PI;
         }
+
         /**
          *
-         * @returns {number}
+         * @return {number}
          */
         get perimeter() {
-            return (Math.PI * this._radius) *2;
+            return (Math.PI * this._radius) * 2;
         }
     }
 
@@ -142,25 +153,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     Shapes = {
-        Shape: Shape,
-        Polygon: Polygon,
-        Rectangle: Rectangle,
-        Square: Square,
-        Circle: Circle,
-        Point: Point
+        Shape,
+        Polygon,
+        Rectangle,
+        Square,
+        Circle,
+        Point,
     };
 
-    let point = new Point(1,1);
-    let point1 = new Point(2,5);
-    let point2 = new Point(5,8);
-    let point3 = new Point(8,3);
-    let point4 = new Point(3,2);
-    let points = [point1, point2, point3, point4];
-    let shape = new Shape(point);
-    let polygon = new Polygon(shape,points);
-    let rectangle = new Rectangle(shape,width, height);
-    let square = new Square(shape,19);
-    let circle = new Circle(shape,7);
+    const point = new Point(1, 1);
+    const point1 = new Point(2, 5);
+    const point2 = new Point(5, 8);
+    const point3 = new Point(8, 3);
+    const point4 = new Point(3, 2);
+    const points = [point1, point2, point3, point4];
+    const shape = new Shape(point);
+    const polygon = new Polygon(shape, points);
+    const rectangle = new Rectangle(shape, 12, 19);
+    const square = new Square(shape, 19);
+    const circle = new Circle(shape, 7);
 
     console.log(shape);
     console.log(polygon);

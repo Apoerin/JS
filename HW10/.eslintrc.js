@@ -12,11 +12,12 @@ module.exports = {
         // enable additional rules
         indent: [
             'error',
-            2,
+            4,
             {
                 SwitchCase: 1
             }
         ],
+        'no-underscore-dangle': ["error", { "allowAfterThis": true }],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
