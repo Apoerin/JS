@@ -24,20 +24,21 @@
  *      периметр()
  */
 document.addEventListener('DOMContentLoaded', function () {
-    /**
-     * @param {Point} center
-     */
+
     class Shape {
+        /**
+         * @param {Point} center
+         */
         constructor(center) {
             this.center = center;
         }
     }
 
-    /**
-     * @param {Point} center
-     * @param {points[]} points
-     */
     class Polygon {
+        /**
+         * @param {Point} center
+         * @param {Point[]} points
+         */
         constructor(center, points) {
             this._center = center;
             this._points = points;
@@ -60,12 +61,12 @@ document.addEventListener('DOMContentLoaded', function () {
     class Rectangle {
         constructor(center, width, height) {
             this._center = center;
+            if (this._points.length !== 4) {
+                throw new Error('rectangle should have 4 sides');
+            }
             if (this._points.length === 4) {
                 this._width = this._points[0].getDistance(this._points[1]);
                 this._height = this._points[1].getDistance(this._points[3]);
-            }
-            else if (this._points.length !== 4) {
-                throw new Error('rectangle should have 4 sides');
             }
         }
         /**
@@ -92,11 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /**
-     * @param {Point} center
-     * @param {number} radius
-     */
     class Circle {
+        /**
+         * @param {Point} center
+         * @param {number} radius
+         */
         constructor(center, radius) {
             this._center = center;
             this._radius = radius;
@@ -118,17 +119,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     class Point {
+        constructor(x, y) {
+            this._x = x;
+            this._y = y;
+        }
+
         get x() {
             return this._x;
         }
 
         get y() {
             return this._y;
-        }
-
-        constructor(x, y) {
-            this._x = x;
-            this._y = y;
         }
 
         getPointAtOffset(x1, y1) {
@@ -150,15 +151,15 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     let point = new Point(1,1);
-    let points = [point1, point2, point3, point4];
     let point1 = new Point(2,5);
     let point2 = new Point(5,8);
     let point3 = new Point(8,3);
     let point4 = new Point(3,2);
+    let points = [point1, point2, point3, point4];
     let shape = new Shape(point);
     let polygon = new Polygon(shape,points);
-    let rectangle = new Rectangle(shape,width,height);
-    let square = new Square(shape,width);
+    let rectangle = new Rectangle(shape,width, height);
+    let square = new Square(shape,19);
     let circle = new Circle(shape,7);
 
     console.log(shape);

@@ -38,7 +38,4 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "jest": "^24.1.0"
-  }
 }
