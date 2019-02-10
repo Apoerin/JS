@@ -23,7 +23,6 @@
  *      площа(),
  *      периметр()
  */
-document.addEventListener('DOMContentLoaded', () => {
 
     class Shape {
         constructor(center: Point) {
@@ -39,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         get perimeter():number {
             let sum:number = 0;
+            if (this._points.length !== 4) {
+                throw new Error('polygon should have at least 4 sides');
+            }
             if (this._points.length >= 4) {
                 for (let i = 0; i < this._points.length - 1; i++) {
                     sum += this._points[i].getDistance(this._points[i + 1]);
@@ -70,8 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     class Square extends Rectangle {
         constructor(center: Point, width: number) {
             super(center, width, width);
-            this._center = center;
-            this._width = width;
         }
     }
 
@@ -139,4 +139,3 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(rectangle);
     console.log(square);
     console.log(circle);
-});
