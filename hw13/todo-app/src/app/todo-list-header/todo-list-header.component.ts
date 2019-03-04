@@ -13,7 +13,8 @@ export class TodoListHeaderComponent {
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   addTodo() {
     this.add.emit(this.newTodo);

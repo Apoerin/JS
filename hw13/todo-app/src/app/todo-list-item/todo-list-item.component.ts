@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../todo';
 
 @Component({
@@ -16,7 +16,8 @@ export class TodoListItemComponent {
   @Output()
   toggleComplete: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   toggleTodoComplete(todo: Todo) {
     this.toggleComplete.emit(todo);
